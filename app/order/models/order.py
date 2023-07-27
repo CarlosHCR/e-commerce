@@ -3,31 +3,35 @@
 ###
 from django.db import models
 from django.utils.translation import gettext as _
-from app.storage.models.storage import Storage
 from app.accounts.models.user import User
-from app.payment.models.payment import Payment
+from app.order.models.order_item import OrderItem
 
 
 ###
 # Model
 ###
 
-class OrderItem(models.Model):
-
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    storage = models.ForeignKey(Storage, on_delete=models.CASCADE)
-    amount = models.IntegerField(
-        verbose_name=_("Amount"),
-        default=0,
-    )
-
 
 class Order(models.Model):
-    ref_code = models.CharField(max_length=20)
-    order_item = models.ManyToManyField(OrderItem, verbose_name=_("Order Item"))
-    start_date = models.DateTimeField(auto_now_add=True)
-    ordered_date = models.DateTimeField()
-    payment = models.ForeignKey(
-        Payment, on_delete=models.SET_NULL, blank=True, null=True)
-    being_delivered = models.BooleanField(default=False)
-    received = models.BooleanField(default=False)
+    ref_code = models.CharField(max_length=20, verbose_name=_("Ref Code"))
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        verbose_name=_("User")
+    )
+    order_item = models.ForeignKey(
+        OrderItem,
+        on_delete=models.CASCADE,
+        verbose_name=_("Order Item")
+    )
+    start_date = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name=_("Start Date")
+    )
+    ordered_date = models.DateTimeField(
+        verbose_name=_("Ordered Date")
+    )
+    received = models.BooleanField(
+        default=False,
+        verbose_name=_("Received")
+    )

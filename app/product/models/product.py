@@ -3,6 +3,8 @@
 ###
 from django.db import models
 from django.utils.translation import gettext as _
+from app.product.models.size import Size
+from app.product.models.color import Color
 
 
 ###
@@ -36,4 +38,17 @@ class Product(models.Model):
         null=True,
         verbose_name=_('discount price')
     )
-    is_active = models.BooleanField(default=True, verbose_name=_('is active'))
+    is_active = models.BooleanField(
+        default=True,
+        verbose_name=_('is active')
+    )
+    size = models.ForeignKey(
+        Size,
+        verbose_name=_('size'),
+        on_delete=models.CASCADE
+    )
+    color = models.ForeignKey(
+        Color,
+        verbose_name=_("Color"),
+        on_delete=models.CASCADE
+    )
