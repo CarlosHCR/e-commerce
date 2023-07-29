@@ -22,7 +22,7 @@ from app.accounts.models.change_email_request import ChangeEmailRequest
 @admin.register(User)
 class UserAdmin(BaseUserAdmin):
     list_display = ('id', 'email', 'username', 'is_active',
-                    'last_login', 'date_joined','address')
+                    'last_login', 'date_joined')
 
 
 @admin.register(ChangeEmailRequest)

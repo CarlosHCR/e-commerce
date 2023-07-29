@@ -17,7 +17,7 @@ from app.address.models.address import Address
 
 
 class AddressAdmin(admin.ModelAdmin):
-    list_display = ('id', 'street', 'number', 'extra',
+    list_display = ('id','user', 'street', 'number', 'extra',
                     'neighborhood', 'city', 'state', 'zip_code',)
 
 

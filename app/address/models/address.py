@@ -3,7 +3,7 @@
 ###
 from django.db import models
 from django.utils.translation import gettext as _
-
+from app.accounts.models.user import User
 
 ###
 # Model
@@ -11,6 +11,11 @@ from django.utils.translation import gettext as _
 
 
 class Address(models.Model):
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        verbose_name=_('User'),
+    )
     street = models.CharField(
         max_length=512,
         verbose_name=_('Street/Avenue'),
