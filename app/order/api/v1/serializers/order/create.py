@@ -8,7 +8,6 @@ from rest_framework import serializers, exceptions
 from app.order.models.order import Order
 from app.order.models.order_item import OrderItem
 from app.storage.models.storage import Storage
-from app.product.models.product import Product
 
 ###
 # Serializers
@@ -38,4 +37,9 @@ class CreateOrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Order
-        fields = '__all__'
+        fields = (
+            'id',
+            'order_item',
+            'ref_code',
+            'ordered_date',
+        )

@@ -5,7 +5,7 @@ API V1: Order Views
 # Libraries
 ###
 
-from rest_framework import viewsets
+from rest_framework import viewsets, permissions
 from app.order.models.order import Order
 from app.order.api.v1.serializers.order.create import CreateOrderSerializer
 from app.order.api.v1.serializers.order.default import DefaultOrderSerializer
@@ -18,6 +18,7 @@ from app.order.api.v1.serializers.order.default import DefaultOrderSerializer
 
 class OrderViewSet(viewsets.ModelViewSet):
     queryset = Order.objects.all()
+    permission_classes = (permissions.IsAuthenticated,)
 
     def get_serializer_class(self):
         if self.action == 'create':
