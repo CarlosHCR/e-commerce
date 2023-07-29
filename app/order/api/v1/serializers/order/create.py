@@ -38,8 +38,7 @@ class CreateOrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = (
-            'id',
             'order_item',
-            'ref_code',
-            'ordered_date',
+            'delivery_date',
+            'delivery_address',
         )

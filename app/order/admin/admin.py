@@ -22,8 +22,8 @@ class OrderItemAdmin(admin.ModelAdmin):
 
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('id', 'ref_code', 'user', 'order_item', 'start_date',
-                    'ordered_date', 'received',)
+    list_display = ('id', 'user', 'delivery_address', 'order_item', 'start_date',
+                    'delivery_date', 'received',)
 
 
 admin.site.register(OrderItem, OrderItemAdmin)
