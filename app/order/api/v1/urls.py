@@ -6,7 +6,8 @@ API V1: Order Urls
 ###
 from django.urls import path, include
 from rest_framework import routers
-from app.storage.api.v1.views.storage_views import StorageViewSet
+from app.order.api.v1.views.order_views import OrderViewSet
+from app.order.api.v1.views.order_item_views import OrderItemViewSet
 
 
 ###
@@ -17,8 +18,14 @@ router = routers.SimpleRouter()
 
 router.register(
     r'order',
-    StorageViewSet,
+    OrderViewSet,
     basename='order'
+)
+
+router.register(
+    r'order_item',
+    OrderItemViewSet,
+    basename='order_item'
 )
 
 ###

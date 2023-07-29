@@ -3,7 +3,7 @@
 ###
 from django.db import models
 from django.utils.translation import gettext as _
-from app.storage.models.storage import Storage
+from app.product.models.product import Product
 
 
 ###
@@ -11,8 +11,12 @@ from app.storage.models.storage import Storage
 ###
 
 class OrderItem(models.Model):
-    storage = models.ForeignKey(Storage, on_delete=models.CASCADE)
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+        verbose_name=_("Product"),
+    )
     amount = models.IntegerField(
-        verbose_name=_("Amount"),
         default=0,
+        verbose_name=_("Amount"),
     )

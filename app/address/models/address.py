@@ -13,19 +13,19 @@ from django.utils.translation import gettext as _
 class Address(models.Model):
     street = models.CharField(
         max_length=512,
-        verbose_name=_('street/avenue'),
+        verbose_name=_('Street/Avenue'),
     )
     number = models.CharField(
         max_length=16,
-        verbose_name=_('number'),
+        verbose_name=_('Number'),
     )
     extra = models.CharField(
         max_length=64,
-        verbose_name=_('extra'),
+        verbose_name=_('Extra'),
     )
     neighborhood = models.CharField(
         max_length=64,
-        verbose_name=_('neighborhood'),
+        verbose_name=_('Neighborhood'),
     )
     city = models.CharField(
         max_length=256,
@@ -37,5 +37,5 @@ class Address(models.Model):
     )
     zip_code = models.CharField(
         max_length=8,
-        verbose_name=_('zip code'),
+        verbose_name=_('Zip code'),
     )

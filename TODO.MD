@@ -18,7 +18,7 @@ DEFAULT_FROM_EMAIL='e-commerce <noreply@e-commerce.com>'
 - [V] Criar o model Storage
 - [V] Criar o model Order
 - [V] Criar o model Address
-- [ ] Criar o model Payment
+- [V] Criar o model Payment
 
 ###
 # Default Serializers
@@ -30,3 +30,15 @@ DEFAULT_FROM_EMAIL='e-commerce <noreply@e-commerce.com>'
 - [V] Criar o serializer Address
 - [ ] Criar o serializer Order
 - [ ] Criar o serializer Payment
+
+
+
+###
+# Models
+###
+
+###
+# Libs
+###
+from django.db import models
+from django.utils.translation import gettext as _

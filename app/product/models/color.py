@@ -13,5 +13,5 @@ from django.utils.translation import gettext as _
 class Color(models.Model):
     color = models.CharField(
         max_length=30,
-        verbose_name=_('color'),
+        verbose_name=_('Color'),
     )

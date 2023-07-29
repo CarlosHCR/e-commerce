@@ -18,7 +18,7 @@ from app.order.models.order_item import OrderItem
 ###
 
 class OrderItemAdmin(admin.ModelAdmin):
-    list_display = ('id', 'storage', 'amount',)
+    list_display = ('id', 'product', 'amount',)
 
 
 class OrderAdmin(admin.ModelAdmin):

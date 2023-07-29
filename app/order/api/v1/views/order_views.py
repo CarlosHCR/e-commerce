@@ -7,6 +7,7 @@ API V1: Order Views
 
 from rest_framework import viewsets
 from app.order.models.order import Order
+from app.order.api.v1.serializers.order.create import CreateOrderSerializer
 from app.order.api.v1.serializers.order.default import DefaultOrderSerializer
 
 
@@ -17,4 +18,13 @@ from app.order.api.v1.serializers.order.default import DefaultOrderSerializer
 
 class OrderViewSet(viewsets.ModelViewSet):
     queryset = Order.objects.all()
-    serializer_class = DefaultOrderSerializer
+
+    def get_serializer_class(self):
+        if self.action == 'create':
+            return CreateOrderSerializer
+        else:
+            return DefaultOrderSerializer
+
+    def perform_create(self, serializer):
+        user = self.request.user
+        serializer.save(user=user)

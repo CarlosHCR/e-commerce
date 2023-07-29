@@ -14,4 +14,9 @@ from app.address.models.address import Address
 
 
 class User(AbstractUser):
-    address = models.ForeignKey(Address, on_delete=models.CASCADE, null=True)
+    address = models.ForeignKey(
+        Address,
+        null=True,
+        on_delete=models.CASCADE,
+        verbose_name=_("Address"),
+    )
