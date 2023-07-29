@@ -16,11 +16,7 @@ class Product(models.Model):
 
     name = models.CharField(
         max_length=30,
-        unique=True,
         verbose_name=_('Name'),
-        error_messages={
-            "unique": _("This product already exists in storage.")
-        }
     )
     price = models.FloatField(verbose_name=_('price'))
     description_short = models.TextField(verbose_name=_('Description short'))
