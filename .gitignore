@@ -28,6 +28,7 @@ var/
 .installed.cfg
 *.egg
 __pycache__/
+media/products/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
